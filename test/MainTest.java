@@ -61,4 +61,13 @@ class MainTest {
   }
 
   // TODO: Create your test(s) below. /////////////////////////////////////////
+    @Test
+    void getId() {
+        assertDoesNotThrow(
+            () -> {
+                Connection db = Main.createConnection();
+                int test = Main.getId(db,"'");
+            },"getId's aWord field cannot handle input containing lone single quotes (')"
+        );
+    }
 }
